@@ -16,7 +16,15 @@
         </div>
 
         <script>
+            function isString(value) {
+                return typeof value === 'string' || value instanceof String
+            }
+
             function fillDetails(jsonData) {
+                if (!isString(jsonData)) {
+                    return
+                }
+
                 try {
                     var jsonData = JSON.parse(jsonData);
 
