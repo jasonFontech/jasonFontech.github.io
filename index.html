@@ -24,15 +24,21 @@
                         return
                     }
 
-                    console.log("fillDetails key is alert");
-
                     document.getElementById("get-data").value = jsonData["data"];
                 } catch (err) {
                     console.log("fillDetails error");
                 }
             }
 
-            window.removeEventListener("message", fillDetails)
+            function getMessage(message) {
+                try {
+                    fillDetails(message.data)
+                } catch (err) {
+                    console.log("getMessage error");
+                }
+            }
+
+            window.addEventListener("message", getMessage, false);
 
             function sendDetails() {
                 var value = {
