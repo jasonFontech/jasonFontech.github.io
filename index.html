@@ -32,7 +32,7 @@
                 }
             }
 
-            window.removeEventListener("message", fillDetails)
+            window.addEventListener("message", fillDetails, false);
 
             function sendDetails() {
                 var value = {
