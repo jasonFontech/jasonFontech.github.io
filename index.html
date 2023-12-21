@@ -18,12 +18,13 @@
         <script>
             function fillDetails(jsonData) {
                 try {
-                    console.log("jsonData =", jsonData);
                     var jsonData = JSON.parse(jsonData);
 
                     if (jsonData["key"] !== 'alert') {
                         return
                     }
+
+                    console.log("fillDetails key is alert");
 
                     document.getElementById("get-data").value = jsonData["data"];
                 } catch (err) {
