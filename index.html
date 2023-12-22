@@ -32,7 +32,13 @@
                         return
                     }
 
-                    document.getElementById("get-data").value = jsonData["data"];
+                    if (!jsonData["data"]) {
+                        return
+                    }
+
+                    const data = jsonData["data"]
+
+                    document.getElementById("get-data").value = data["action"];
                 } catch (err) {
                     console.log("fillDetails error");
                 }
@@ -56,8 +62,8 @@
                         message: "Dialog Message",
                         okBtnTitle: "OK",
                         cancelBtnTitle: "Cancel",
-                        okAction: "{\"key\":\"alert\", \"data\":\"ok\"}", // Replace with actual action or code
-                        cancelAction: "{\"key\":\"alert\", \"data\":\"cancel\"}", // Replace with actual action or code
+                        okAction: "{\"key\":\"alert\", \"data\":{\"action\": \"ok\"}}", // Replace with actual action or code
+                        cancelAction: "{\"key\":\"alert\", \"data\":{\"action\": \"cancel\"}}", // Replace with actual action or code
                     },
                 };
 
